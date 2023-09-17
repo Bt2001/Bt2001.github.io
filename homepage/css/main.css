@@ -1,0 +1,53 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#banner {
+    width: 800px;
+    height: 100px;
+    background-color: #344E41;
+    clear: both;
+    position: fixed;
+}
+
+#nav {
+    width: 200px;
+    height: 200px;
+    background-color: #A3B18A;
+    float: left;
+}
+
+#content {
+    width: 500px;
+    height: 400px;
+    background-color: #DAD7CD;
+    float: left;
+}
+
+#supporting {
+    width: 100px;
+    height: 150px;
+    background-color: #A3B18A;
+    float: left;
+}
+
+#footer {
+    width: 800px;
+    height: 50px;
+    background-color: #588157;
+    float: left;
+    clear: both;
+}
+
+
+#content,
+#nav,
+#supporting {
+    margin-top: 100px;
+}
+
+#wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
