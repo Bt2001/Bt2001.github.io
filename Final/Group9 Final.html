@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>雨都的集體記憶：湮滅的旭川河與三連棟的未來想像</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+TC">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+            overflow-x: hidden;
+            font-family: 'Noto Serif TC', serif;
+            color: white;
+            background-color: #314857;
+        }
+
+        #banner-title {
+            position: absolute;
+            color: black;
+            font-size: 48px;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 700;
+            text-align: left;
+            line-height: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .spot {
+            background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, #F5FF8E 0);
+            background-position: 0;
+            background-size: 200%;
+            transition: all .8s;
+            font-weight: 400;
+        }
+
+        .spotted {
+            background-position: -100%;
+            color: #424242 !important;
+        }
+
+        #leading {
+            display: flex !important;
+            padding: 0 !important;
+            background-image: url(Picture/0.JPG);
+            height: 150vh !important;
+            background-size: cover;
+        }
+
+        #leadingbox {
+            margin-top: 30vh;
+        }
+
+        #leadingtitle {
+            position: absolute;
+            margin-top: 45vh;
+        }
+
+        #leadingtext {
+            font-size: 2.5rem;
+            padding-left: 7.5rem;
+        }
+
+        #map {
+            display: flex !important;
+            padding: 0 !important;
+            height: 100vh !important;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+
+        #maptitle {
+            max-width: 100vw !important;
+            margin: 5vh 0vw 5vh 0vw;
+            text-align: center;
+        }
+
+        #maptitletext {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        #mapstorytext {
+            font-size: 1.2rem;
+            padding: 3vh 2vw 3vh 2vw;
+        }
+
+        #shop>div:first-child {
+            background-image: url("Picture/1-7.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        #tripleshop>div:first-child {
+            background-image: url("Picture/1-8.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        #banner2 {
+            display: flex !important;
+            padding: 0 !important;
+            height: 150vh !important;
+            background-size: cover;
+        }
+
+        #banner2box {
+            margin-top: 25vh;
+        }
+
+        #banner2title {
+            position: absolute;
+            margin-top: 45vh;
+        }
+
+        #banner2text {
+            font-size: 2.5rem;
+            padding-left: 7.75rem;
+        }
+
+        #port1title {
+            max-width: 100vw !important;
+            margin: 5vh 0vw 5vh 0vw;
+            text-align: center;
+        }
+
+        #port2title {
+            max-width: 100vw !important;
+            margin: 5vh 0vw 5vh 0vw;
+            text-align: center;
+        }
+
+        .flip {
+            position: relative;
+
+            >.front,
+            >.back {
+                display: block;
+                transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+                transition-duration: .5s;
+                transition-property: transform, opacity;
+            }
+
+            >.front {
+                transform: rotateY(0deg);
+            }
+
+            >.back {
+                position: absolute;
+                opacity: 0;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                transform: rotateY(-180deg);
+            }
+
+            &:hover {
+                >.front {
+                    transform: rotateY(180deg);
+                }
+
+                >.back {
+                    opacity: 1;
+                    transform: rotateY(0deg);
+                }
+            }
+
+            &.flip-vertical {
+                >.back {
+                    transform: rotateX(-180deg);
+                }
+
+                &:hover {
+                    >.front {
+                        transform: rotateX(180deg);
+                    }
+
+                    >.back {
+                        transform: rotateX(0deg);
+                    }
+                }
+            }
+        }
+
+        .flip {
+            position: relative;
+            display: inline-block;
+            width: 25vw;
+
+            >.front,
+            >.back {
+                display: block;
+                width: inherit;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+                height: 15vw;
+                background: #424242;
+                border-radius: 10px;
+            }
+        }
+
+        .opa {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            /* 根据需要调整 */
+            background-attachment: fixed;
+            z-index: 200;
+            /* 根据层次调整 */
+            opacity: 0;
+            /* 设置初始透明度为0 */
+            top: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .opa[data-pos="1"] {
+            z-index: 200;
+            top: 0vh;
+        }
+
+        .opa[data-pos="2"] {
+            z-index: 201;
+            top: 100vh;
+        }
+
+        .opa[data-pos="3"] {
+            z-index: 202;
+            top: 200vh;
+        }
+
+        .opa[data-pos="4"] {
+            z-index: 203;
+            top: 300vh;
+        }
+
+        .opa[data-pos="5"] {
+            z-index: 204;
+            top: 400vh;
+        }
+
+        .text-content {
+            position: absolute;
+            width: 100vw;
+            top: 0;
+            font-size: 1.5rem;
+            color: #424242;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .text-content[data-pos="1"] {
+            z-index: 201;
+            top: 25vh;
+        }
+
+        .text-content[data-pos="2"] {
+            z-index: 202;
+            top: 125vh;
+        }
+
+        .text-content[data-pos="3"] {
+            z-index: 203;
+            top: 225vh;
+        }
+
+        .text-content[data-pos="4"] {
+            z-index: 204;
+            top: 325vh;
+        }
+
+        .text-content[data-pos="5"] {
+            z-index: 205;
+            top: 425vh;
+        }
+
+        #horizontal {
+            position: relative;
+            display: inline-block;
+            left: 0;
+        }
+
+        .threeblock {
+            position: relative;
+            background-color: #314857;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .threeblock img {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            height: auto;
+            width: 100vw;
+            object-fit: contain;
+        }
+
+        .three-1block {
+            position: relative;
+            background-color: #314857;
+            height: 120vh;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .three-1block-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .card {
+            display: none;
+            position: absolute;
+            overflow: auto;
+        }
+
+        .cardblock {
+            position: relative;
+            background-color: #314857;
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sectionblock {
+            position: relative;
+            background-color: #314857;
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .block {
+            width: 30%;
+            text-align: center;
+            /* Center the text */
+            flex-direction: column;
+            /* 讓文字強制置於圖片下方 */
+        }
+
+        .block img {
+            width: 60%;
+            height: auto;
+        }
+
+        .block p {
+            margin-top: 10px;
+        }
+
+        .answer-block {
+            width: 30%;
+            text-align: center;
+            /* Center the text */
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .title-block {
+            font-size: 1.5rem;
+            /* 更改文字大小 */
+            font-weight: 700;
+            width: 30%;
+            text-align: center;
+        }
+
+        .top-text-box {
+            margin-bottom: 170px;
+            font-size: 20px;
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: left;
+        }
+
+        .bottom-text-box {
+            margin-top: 250px;
+            font-size: 20px;
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .sec-top-text-box {
+            margin-bottom: 0px;
+            font-size: 16px;
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: left;
+        }
+
+        .sec-bottom-text-box {
+            margin-top: 100px;
+            font-size: 18px;
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .sec-bottom-text-box img {
+            width: 80%;
+            height: auto;
+        }
+
+        .finalquote-block {
+            width: 50%;
+            text-align: center;
+            /* Center the text */
+            flex-direction: column;
+            /* 讓文字強制置於圖片下方 */
+        }
+
+        .finalquote-block img {
+            width: 60%;
+            height: auto;
+        }
+
+        .finalquote-block p {
+            margin-top: 10px;
+        }
+
+        .finalanswer-block {
+            width: 50%;
+            text-align: center;
+            /* Center the text */
+            font-size: 20px;
+        }
+
+        .finaltitle-block {
+            font-size: 28px;
+            /* 更改文字大小 */
+            font-weight: 700;
+            width: 100%;
+            text-align: center;
+        }
+
+        #overlay {
+            display: none;
+            /* 初始設定為不顯示 */
+            opacity: 0;
+            /* 初始透明度為0 */
+            transition: opacity 1s ease;
+            /* 設置淡入效果，持續時間1秒 */
+            /* 其他必要的樣式，比如位置、大小等 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="threeblock" style="background-color: black!important;">
+        <img src="Picture/main_banner.png">
+        <div id="banner-title" style="padding-top: 100px;">
+            <p><span style="font-size:48px; padding-left: 320px;">雨都的集體記憶</span>
+                <br>
+                <span style="font-size:24px; padding-left: 320px; color:rgb(0, 0, 0)">湮滅的旭川河與三連棟的未來想像</span>
+            </p>
+        </div>
+    </div>
+    <div id="leading" class="cover-container d-flex mx-0 flex-column">
+        <main id="leadingbox" role="main" class="inner cover">
+            <div class="container px-4">
+                <div class="row gx-5">
+                    <div class="col"></div>
+                    <div class="col">
+                        <span id="leadingtext">與海相望的樓房<br></span>
+                        <span id="leadingtext" style="font-size: 2rem!important;">之下<br><br></span>
+                        <span id="leadingtext" style="font-size: 1.5rem!important;">一條隱匿的河<br><br><br><br><br></span>
+                        <span id="leadingtext"
+                            style="font-size: 1.5rem!important;padding-left: 11rem!important;">潮起潮落之間<br></span>
+                        <span id="leadingtext"
+                            style="font-size: 1.5rem!important;padding-left: 11rem!important;">見證港口與城市的浮沉<br></span>
+                    </div>
+                </div>
+            </div>
+            <div id="leadingtitle" class="container px-4">
+                <span id="leadingtext" style="font-weight: 700;font-size: 3.5rem!important;">尋訪，名為「旭川」的河<br></span>
+            </div>
+        </main>
+    </div>
+    <div id="map" class="cover-container d-flex mx-0 flex-column"
+        style="height: 100vh;background-color: #314857;display: flex!important;">
+        <main id="mapbox" role="main" class="inner cover">
+            <div id="maptitle" class="container px-4">
+                <span id="maptitletext" style="font-size: 2.5rem!important;">地圖記事｜從旭川河到三連棟</span>
+            </div>
+            <div id="maps" class="container px-4">
+                <div class="row gx-5">
+                    <div class="col">
+                        <img src="Picture/1-1_1888Map.png" alt="清代地圖" style="border-radius: 10px; max-width: 100%;">
+                    </div>
+                    <div class="col">
+                        <img src="Picture/1-2_1935Map.png" alt="日治地圖" style="border-radius: 10px; max-width: 100%;">
+                    </div>
+                    <div class="col">
+                        <img src="Picture/1-3_NowMap.png" alt="現今地圖" style="border-radius: 10px; max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+            <div id="mapstorytext" class="container px-4">
+                <div class="row gx-5">
+                    <div class="col">
+                        <span>清代，可泊船的河道稱「港」<br><br>牛稠港、蚵殼港、石硬港、田寮港分別匯入港灣，俗稱四港門</span>
+                    </div>
+                    <div class="col">
+                        <span>日治，為加強日臺聯繫展開築港工程<br><br>整治市區河川時，將</span>
+                        <span class="spot">蚵殼港下游與石硬港合流為運河，名旭川</span>
+                    </div>
+                    <div class="col">
+                        <span>光復後，基隆市地飽和，遂與河爭地。<br><br>市政府加蓋旭川河面、</span>
+                        <span class="spot">興建明德、親民、至善大樓（即三連棟）</span>
+                        <span>，將岸邊住戶遷入</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="river" class="cover-container d-flex mx-0 flex-column" style="position: relative;">
+        <div id="riverbg" style="position: absolute;top: 0; left: 0; width: 100%; height:175vh!important; z-index:-1;">
+        </div>
+        <div class="container px-4" style="max-width: 100vw;height:175vh!important;z-index:1">
+            <div class="row gx-5" style="margin-top: 5vh;">
+                <div class="col"></div>
+                <div class="col">
+                    <div
+                        style="display:table;text-align:left;height:7.5vh;background-color:rgba(0,0,0,0.5);border-radius: 10px;">
+                        <span
+                            style="display: table-cell; vertical-align: middle;">　從日治時期旭川運河的歷史照片，一窺河流地景與漁獲產業的起源。　</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5" style="margin-top: 20vh;">
+                <div class="col"></div>
+                <div class="col">
+                    <div
+                        style="display:table;text-align:left;height:7.5vh;background-color:rgba(0,0,0,0.5);border-radius: 10px;padding: 2.5vh 1vw 2.5vh 1vw;">
+                        <span class="spot" style="font-size:1.8rem;"> 來去「崁仔頂」</span>
+                        <span><br><br>　　深澳、野柳、金山一帶的漁人豐收後，先回到岸邊魚寮，鹽漬、乾製或煮熟漁貨以便保存，接著重新出航，直至累積足夠的漁貨，才準備販售。途中與其他漁船相遇時，彼此問候：<br><br></span>
+                        <span class="spot" style="font-size:1.2rem;">「你欲去佗？」<br>「我欲去崁仔頂。」</span>
+                        <span><br><br>　　而後，漁船一路航向基隆，緩緩駛進石硬港（今南榮河）下游的街肆。</span>　　討海日常從清領延續到日治時期，而港口和市街的風貌已大不相同：為改善大雨後市區積水不退，也為提供漁船暫避風浪、疏運貨物的場所，隨著基隆港築港工程有條不紊地推行，流經市區的石硬港下游與改道的蚵殻港（今西定河）整併為「旭川運河」。<br><br>　　整治後，方正的駁坎構成岸壁，漁船停泊在側，</span>
+                        <span class="spot">漁人從低低的河床拾階而上，「崁仔」是送貨必經的石階，「崁仔頂」是指石階上，等待漁人到來的漁行。</span>
+                        <span>漁行前的街道與臨海的旭橋（今明德橋，僅存橋柱）熙來攘往，最初販售加工漁製品和雜貨的寥寥商家，夾雜在櫛比鱗次的店舖間，北臺灣最蓬勃熱鬧的漁獲集散地「崁仔頂魚市」就此誕生。<br><br>　　時至今日，魚市的興盛一如既往，不過營業時間、漁貨來源和運輸工具隨著基隆市的發展和冷凍技術的使用而截然不同。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="triple" class="cover-container d-flex mx-0 flex-column" style="position: relative;">
+        <div id="triplebg"
+            style="position: absolute; top: 0; left: 0; width: 100%; height:175vh!important; z-index: -1;"></div>
+        <div class="container px-4" style="max-width: 100vw;height:175vh!important;">
+            <div class="row gx-5" style="margin-top: 5vh;">
+                <div class="col"></div>
+                <div class="col">
+                    <div
+                        style="display:table;text-align:left;height:7.5vh;background-color:rgba(0,0,0,0.5);border-radius: 10px;">
+                        <span
+                            style="display: table-cell; vertical-align: middle;">　從三連棟的歷史照片，見證旭川運河淤積、加蓋、最終隱匿於三連棟之下。　</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5" style="margin-top: 20vh;">
+                <div class="col"></div>
+                <div class="col">
+                    <div
+                        style="display:table;text-align:left;height:7.5vh;background-color:rgba(0,0,0,0.5);border-radius: 10px;padding: 2.5vh 1vw 2.5vh 1vw;">
+                        <span class="spot" style="font-size:1.8rem;"> 入厝「三連棟」</span>
+                        <span class="spot" style="font-size:1.2rem;"><br><br>「如果讓你來治理一個市地飽和的城市，你會怎麼做？」</span>
+                        <span><br><br>　　光復後，腹地狹小的基隆市地飽和。山區開發不易、填海影響港口功能，市政府苦思良久，最終決定</span>
+                        <span class="spot">「與河爭地」</span>
+                        <span>：先禁止漁船駛入淤積的旭川河，再進行整治加蓋，新生地上興建四層的住商混合大樓，依臨海距離命名為「明德、親民、至善大樓」，兩兩間以空橋連接，因此也被稱為「三連棟」。</span>
+                        <span><br><br>　　落成後，河畔居民搬進與漁行一路之隔的大樓，白天做做生意，待夜幕降臨則默契地打烊，因為裝載冷凍漁貨的貨車已經上路，不一會兒就能抵達孝一路的親民大樓，將不計其數的保麗龍箱卸下，經由帶有滾輪的長梯整齊地堆放在漁行。隨著魚腥味瀰散、鹵素燈亮起，新竹、宜蘭以北的餐廳廚師開始挑挑揀揀，糶手（估價、拍賣漁貨的靈魂人物）的喊價聲此起彼落。直到臨近日出，批發的客人心滿意足地離去，散客陸續前來尋找鮮美的食材，崁仔頂魚市一夜的買賣才算漸入尾聲。<br><br>　　如今的「崁仔頂」活力依舊，只是</span>
+                        <sapn class="spot">
+                            隨著「三連棟」出現，搖櫓停泊、拾階而上的景色不再，旭川河成為隱匿在大樓、鬧市下的河流。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="seaphoto" class="cover-container d-flex mx-0 flex-column"
+        style="position: relative;height: 500vh!important;background-color: #314857!important;">
+        <div class="opa" style="background-image: url('Picture/1-6-0.PNG');" data-pos="1"></div>
+        <div class="row gx-5 text-content" data-pos="1">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col" style="text-align: left!important;">
+                <span style="font-size: 1.5rem!important;color:white">從基隆港東岸，<br>認識旭川河與三連棟。</span>
+            </div>
+        </div>
+        <div class="opa" style="background-image: url('Picture/1-6-1.PNG');" data-pos="2"></div>
+        <div class="row gx-5 text-content" data-pos="2">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col" style="text-align: left!important;">
+                <span style="font-size: 1.5rem!important;color:white">「一條隱匿的河」</span>
+                <span style="font-size: 1.2rem!important;color:white"><br><br><br>廣場下，是設有污水攔截措施的<br>旭川河出海口。</span>
+            </div>
+        </div>
+        <div class="opa" style="background-image: url('Picture/1-6-2.PNG');" data-pos="3"></div>
+        <div class="row gx-5 text-content" data-pos="3">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col" style="text-align: left!important;">
+                <span style="font-size: 1.5rem!important;color:white">「一條消失的河」</span>
+                <span
+                    style="font-size: 1.2rem!important;color:white"><br><br><br>忠一路和孝一路路口，<br>被燈柱與交通標誌環繞的橋墩，<br>是日治時期連接旭川運河兩岸的<br>旭橋遺跡。</span>
+            </div>
+        </div>
+        <div class="opa" style="background-image: url('Picture/1-6-3.PNG');" data-pos="4"></div>
+        <div class="row gx-5 text-content" data-pos="4">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col" style="text-align: left!important;">
+                <span style="font-size: 1.5rem!important;color:white">「與海相望的樓房」</span>
+                <span
+                    style="font-size: 1.2rem!important;color:white"><br><br><br>海洋的氣息，<br>從港口輕輕吹向明德大樓，<br>興建四層的住商辦混合大樓<br>是從前市地飽和時的權宜之計。</span>
+            </div>
+        </div>
+        <div class="opa" style="background-image: url('Picture/1-6-4.PNG');" data-pos="5"></div>
+        <div class="row gx-5 text-content" data-pos="5">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col" style="text-align: left!important;">
+                <span style="font-size: 1.5rem!important;color:white">「深夜裡的魚市場」</span>
+                <span
+                    style="font-size: 1.2rem!important;color:white"><br><br><br>親民大樓的周圍，<br>日間鐵門深鎖，一到深夜，<br>貨車駛進窄巷、鹵素燈亮起，<br>真正熱鬧的時候才正要展開。</span>
+            </div>
+        </div>
+    </div>
+    <div id="shop" class="cover-container d-flex mx-0 flex-column" style="position: relative;">
+        <div id="shopbg" style="position: absolute; top: 0; left: 0; width: 100%; height:175vh!important; z-index: -1;">
+        </div>
+        <div class="container px-4" style="max-width: 100vw;height:175vh!important;">
+            <div class="row gx-5" style="margin-top: 15vh;">
+                <div class="col"></div>
+                <div class="col">
+                    <div
+                        style="display:table;text-align:left;height:7.5vh;background-color:rgba(0,0,0,0.5);border-radius: 10px;">
+                        <span style="display: table-cell; vertical-align: middle;">　從緊鄰三連棟的委託行歷史照片，回顧基隆港市的摩登年代。　</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5" style="margin-top: 10vh;">
+                <div class="col"></div>
+                <div class="col">
+                    <div
+                        style="display:table;text-align:left;height:7.5vh;background-color:rgba(0,0,0,0.5);border-radius: 10px;padding: 2.5vh 1vw 2.5vh 1vw;">
+                        <span class="spot" style="font-size:1.8rem;">「委託行」踅街 </span>
+                        <span><br><br>　　臨海不僅為基隆帶來豐盛的漁貨，在戰後戒嚴的時代，由於人們不能隨意出國、進出口也有嚴格的管制，</span>
+                        <span class="spot">船隻往返便利、近水樓台的基隆一躍成為北臺灣舶來品的集散中心。</span>
+                        <span><br><br>或許你會心存疑慮：「管制下，舶來品從何而來？」<br><br>　　第一批商品來自即將遣返的日本人，多半是未能帶走的家具和日用品，希望在遣返前能換取現金；接著是船員私下將二手物品或新品送到港邊地攤販賣的時期，在地人開設的簡陋地攤並不合法，雖有取締，卻無法阻止這類檯面下的交易；越戰及第七艦隊協防臺灣期間，駐紮在基隆港的美軍和水手帶來大量舶來品，以換取休假時到酒吧放鬆的現金，由此時起，買賣舶來品的店家如雨後春筍般開設，一直延續到政府開放工商界人士出國考察、跑單幫（當時的專業代購）形成為止，是「委託行」街區最輝煌的時期。<br><br>　　</span>
+                        <span class="spot">在「委託」寄賣和帶回所需商品的往來之間，「委託行」乾淨明亮的櫥窗是國人接觸新潮事物與異國文化的窗口</span>
+                        <span">，及至1979年開放出國、百貨及購物中心出現前，200家委託行為基隆帶來源源不絕的人潮和錢潮。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tripleshop" class="cover-container d-flex mx-0 flex-column" style="position: relative;">
+        <div id="tripleshopbg"
+            style="position: absolute; top: 0; left: 0; width: 100%; height:175vh!important; z-index: -1;"></div>
+        <div class="container px-4" style="max-width: 100vw;height:175vh!important;">
+            <div class="row gx-5" style="margin-top: 10vh;">
+                <div class="col"></div>
+                <div class="col">
+                    <div
+                        style="display:table;text-align:left;height:7.5vh;background-color:rgba(0,0,0,0.5);border-radius: 10px;">
+                        <span style="display: table-cell; vertical-align: middle;">　三連棟的中央走廊，許多店家默默熄燈，難以想像從前的熱鬧。　</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5" style="margin-top: 15vh;">
+                <div class="col"></div>
+                <div class="col">
+                    <div
+                        style="display:table;text-align:left;height:7.5vh;background-color:rgba(0,0,0,0.5);border-radius: 10px;padding: 2.5vh 1vw 2.5vh 1vw;">
+                        <span class="spot" style="font-size:1.8rem;">「三連棟」ㄟ店 </span>
+                        <span><br><br>　　緊鄰委託行街區、拔地而起的住商大樓曾經轟動一時：一、二樓的商店街因為船員、碼頭工人和委託行顧客的到來顯得生氣蓬勃；三、四樓的住宅、工會和報關行則是因為居民和職人的出入而充滿生活氣息。<br><br>　　2023年初記錄的三連棟商舖平面圖，顯示明德、親民、至善大樓雖然緊密相連，但聚集的產業卻不盡相同：明德大樓是流行場域，一樓的咖啡、餐飲、手搖飲料和服飾比鄰而居，二樓的咖啡、餐飲與美容美髮分庭抗禮，大樓一隅還有美術用品店、手藝材料行和模型店，三樓的物流公司、報關行與文史協進會則是隱約透露這裡從前的故事；親民大樓是生活場所，一樓的漁行白天以緊閉的鐵門示人，使得彩券行、診所、雨具行及百貨脫穎而出，二樓毫無疑問是女裝訂製、服飾修改的天下，阿姨的身影或穿梭於布料間，或專注而熟稔地使用布剪和縫紉機，車縫之餘，也會閒話家常幾句；至善大樓一樓囊括各式各樣的民生需求——咖啡、餐飲、製麵、水產、衡器、香舖、中藥、雨具，二樓則是放鬆的交際場合，幾家卡拉OK、酒坊的霓虹閃爍、親切道地的臺語和熱情的歌聲，很輕易地讓來自各方、萍水相逢的陌生人熱絡起來。<br><br>　　迄今，戰爭的氛圍遠去、從事海上與港邊工作的人數銳減，多數委託行和三連棟的店家默默拉下鐵門，偶有新的商店進駐，街區不至於徹底黯淡下來，卻再不復過去的璀璨。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="floorplan" class="cover-container d-flex mx-0 flex-column" style="height: 1000vh!important;">
+        <div class="sticky-top">
+            <div id="horizontal">
+                <img src="Picture/1-9new.svg" style="height: 100vh!important;width: auto;">
+            </div>
+        </div>
+    </div>
+    <div id="banner2" class="cover-container d-flex mx-0 flex-column"
+        style="position: relative!important;height: 150vh;">
+        <div id="banner2bg"
+            style="position: absolute; top: 0; left: 0; width: 100%; height:150vh!important; z-index: -1;"></div>
+        <main id="banner2box" role="main" class="inner cover">
+            <div class="container px-4">
+                <div class="row gx-5">
+                    <div class="col"></div>
+                    <div class="col">
+                        <span id="banner2text">巔峰以後<br></span>
+                        <span id="banner2text" style="font-size: 2rem!important;">港口與城市該何去何從？<br><br></span>
+                        <span id="banner2text" style="font-size: 1.5rem!important;">舊歲月與新契機之間<br></span>
+                        <span id="banner2text" style="font-size: 1.5rem!important;">想像城市未來的時刻<br><br><br></span>
+                        <span id="banner2text" style="font-size: 1.5rem!important;">期盼<br></span>
+                    </div>
+                </div>
+            </div>
+            <div id="banner2title" class="container px-4">
+                <span id="banner2text" style="font-weight: 700;font-size: 3.5rem!important;">再現，名為「旭川」的河<br></span>
+            </div>
+        </main>
+    </div>
+    <div id="port1" class="cover-container d-flex mx-0 flex-column"
+        style="position: relative!important;height: 120vh;display: flex!important;">
+        <div id="port1bg"
+            style="position: absolute; top: 0; left: 0; width: 100%; height:120vh!important; z-index: -1;"></div>
+        <main id="port1box" role="main" class="inner cover">
+            <div id="port1title" class="container px-4">
+                <span id="port1titletext" style="font-weight: 700;font-size: 2.5rem!important;">港區沒落｜繁夢散盡的海港城市</span>
+            </div>
+            <div id="port1content" class="container px-4">
+                <div class="row gx-5">
+                    <div class="col">
+                        <img src="Picture/2-1-1.png" alt="基隆港歷年貨櫃吞吐量" style="border-radius: 10px; max-width: 100%;">
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div id="port1storytext" class="container px-4" style="margin-top:10vh!important;">
+                <span
+                    id="port1titletext">1912年，隨著築港工程進行，碼頭取代泥灘曲岸，現代化的基隆港初見雛型。<br>1984年，基隆港成為世界第7大貨櫃港。<br><br><br>然而，受限於天然水深、地形、內陸運輸系統及碼頭後線不足，基隆港恐難應付日漸增長的運量需求，因此另闢臺北港作為輔助。<br>雖然兩港最初的定位是相輔相成，但臺北港的崛起嚴重影響基隆的海港事業。<br><br>當龍頭產業受到限制，基隆市不可避免地寂寥下來，在地的年輕人不得不開始跨縣市的通勤，往返基隆、臺北以尋求更好的發展。</span>
+            </div>
+        </main>
+    </div>
+    <div id="port2" class="cover-container d-flex mx-0 flex-column"
+        style="position: relative!important;height: 150vh;display: flex!important;">
+        <div id="port2bg"
+            style="position: absolute; top: 0; left: 0; width: 100%; height:150vh!important; z-index: -1;"></div>
+        <main id="port2box" role="main" class="inner cover" style="margin-top: 8vh;">
+            <div id="port2title" class="container px-4">
+                <span id="port2titletext" style="font-weight: 700;font-size: 2.5rem!important;;">郵輪風潮｜市港轉型觀光的契機</span>
+            </div>
+            <div id="port2content" class="container px-4">
+                <div class="row gx-5">
+                    <div class="col">
+                        <img src="Picture/2-2-1.png" alt="基隆港疫情前歷年郵輪旅次" style="border-radius: 10px; max-width: 100%;">
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div id="port2storytext" class="container px-4" style="margin-top:30vh!important;">
+                <span
+                    id="port2titletext"><br>成也蕭何、敗也蕭何，「距離臺北很近」在產業萎縮下導致青年人口流失，<br>但在國際郵輪風潮中，反而是基隆港的優勢，空下的港邊設施因此迎來新的可能：<br>基隆港的郵輪艘次年年增長，不僅在疫情前成為全臺當之無愧的郵輪母港，<br></span>
+                <span id="port2titletext" style="font-size: 1.2rem;">更在2018年帶來高達94萬的旅次，</span>
+                <span
+                    id="port2titletext"><br>只要將赴臺北觀光的旅客留在基隆，就能累積相當可觀的觀光效益。<br><br><br>為此，市政府和基隆港務局（今臺灣港務公司基隆港務分公司）展開合作，<br>思考有別以往的市港關係，使得願景和改造有機會從圖紙變成現實。<br><br><br></span>
+                <span id="port2titletext" style="font-size: 1.8rem;">「排除產權、法規限制，基隆可以先做什麼？」</span>
+            </div>
+        </main>
+    </div>
+    <div id="KLtalk" class="cover-container d-flex mx-0 flex-column"
+        style="padding: 0vh 12.5vw 0vh 12.5vw!important;background-color: #314857!important;">
+        <main id="KLtalkbox" role="main" class="inner cover" style="margin-top: 8vh;">
+            <div id="KLtalktitle" class="container px-4">
+                <span id="KLtalktitletext"
+                    style="font-weight: 700;font-size: 2.1rem!important;">由下而上｜旭川作為展現海港歷史的場域</span>
+            </div>
+            <div id="KLtalkcontent" class="container px-4">
+                <span
+                    id="KLtalktitletext"><br><br>　　引導跟著基隆港歷經大起大落的居民發聲並不容易，一方面是居民不相信提出的想法有機會落實，另一方面沒落的社區也缺乏有意願進駐、有能力執行計畫的團隊。萬事起頭難，隨著工作坊和在地活動順利舉辦，大家記憶中的故事和對未來的想望開始流露出來。<br><br></span>
+                <span id="KLtalktitletext" style="font-size: 1.5rem!important;">「基隆的亮點是什麼？」</span>
+                <span
+                    id="KLtalktitletext"><br><br>　　許多在地人認為，是被埋沒在「雨都」稱號之下，繁極一時的港都歷史，那些因海而生的文化、節慶與信仰，是基隆不為人知的底蘊。<br><br></span>
+                <span id="KLtalktitletext" style="font-size: 1.5rem!important;">「怎麼傳達基隆的情懷？」</span>
+                <span
+                    id="KLtalktitletext"><br><br>　　從環境層面來說，依水而生的城市應該有乾淨的河流和海口；從歷史角度而言，基隆始於崁仔頂街肆，築港時期建造旭川運河，港務最繁重時，三連棟取代旭川河，矗立在市區中央、臨港的絕佳位置，而今則略顯冷清、衰敗。<br><br></span>
+                <div class="row gx-5" style="margin: 5vh 0vw 10vh 0vw;">
+                    <div class="col-4">
+                        <img src="Picture/2-3.JPG" alt="旭川河畔的駁坎" style="border-radius: 10px; max-width: 100%;">
+                    </div>
+                    <div class="col-8">
+                        <span id="KLtalktitletext"
+                            style="font-size: 1.5rem!important;">「比起住商大樓，或許基隆更需要能夠展現海港歷史的場域？」</span>
+                        <span
+                            id="KLtalktitletext"><br><br>　　後工業化時代，都市河流功能由運輸轉變為遊憩的規劃方式蔚為風潮，乘著這個思維，許多人想起那條湮滅於記憶裡的旭川河。比起逐漸失去人潮與生機的老舊建築，讓旅客下船後第一時間看到以河川為主軸的開放空間，似乎更具吸引力。<br><br>2021年底，三連棟旁的忠二橋、忠三橋主樑變形，改建開挖時發現疑似日治時期的駁坎，再次讓大家思考保留古駁坎、再現旭川河的可行性。</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="flipcards" class="cover-container d-flex mx-0 flex-column"
+        style="padding:5vh 12.5vw 5vh 12.5vw;background-color: white!important;">
+        <div style="padding:0vh 0vw 5vh 0vw;text-align: center;color:#424242;;">
+            <span>將滑鼠移動到卡片上方，閱讀各界對於旭川河開蓋的想法</span>
+        </div>
+        <div class="row gx-5">
+            <div class="col-4">
+                <div class="flip flip-vertical">
+                    <div class="front"
+                        style="background-image: url(Picture/2-4-1.png);display: flex!important;justify-content: center;align-items: center;">
+                        <span style="font-size: 1.8rem!important;">留言說</span>
+                    </div>
+                    <div class="back" style="padding: 3vh 2vw 3vh 2vw!important;">
+                        <span style="font-size: 1.2rem!important;">「拜託不要放棄旭川河，<br>好想在有生之年看到旭川河開蓋」</span>
+                        <span><br><br><br><br>「基隆市港再生標竿願景3D影片」<br>底下的留言</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="flip flip-vertical">
+                    <div class="front"
+                        style="background-image: url(Picture/2-4-2.png);display: flex!important;justify-content: center;align-items: center;">
+                        <span style="font-size: 1.8rem!important;">規劃說</span>
+                    </div>
+                    <div class="back" style="padding: 3vh 2vw 3vh 2vw!important;">
+                        <span
+                            style="font-size: 1.2rem!important;">李孟薇｜城市糶手呼吸伸展所<br>王之妍｜明日基隆，大船出港<br>　　　　＿再造公共旭川<br>廖宗勳｜雨日慶典</span>
+                        <span><br><br>「第二屆基隆評圖：靠岸KEELUNG」<br>參賽作品</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="flip flip-vertical">
+                    <div class="front"
+                        style="background-image: url(Picture/2-4-3.png);display: flex!important;justify-content: center;align-items: center;">
+                        <span style="font-size: 1.8rem!important;">居民說</span>
+                    </div>
+                    <div class="back" style="padding: 3vh 2vw 3vh 2vw!important;">
+                        <span
+                            style="font-size: 1.2rem!important;">「如果它蓋在這邊（火車站西岸碼頭廣場），要跟我們換的話，我們很樂意啦，我們整棟大樓的話，只有我代表就可以了。」</span>
+                        <span><br><br>公視獨立特派員第233集─看不見的河<br>仁德里里長王朝成</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="question" class="cover-container d-flex mx-0 flex-column"
+        style="height: 100vh!important;background-color: #314857;display: flex!important;justify-content: center;align-items: center;">
+        <span style="font-weight: 700;font-size: 1.8rem!important;">「再次出現在大眾視野的旭川河，會重見天日嗎？」</span>
+    </div>
+    <div class="threeblock">
+        <img id=pic3-1 src="Picture/banner_3.png">
+    </div>
+    <div class="three-1block">
+        <p class="three-1block-text">不妨透過現場直擊瞭解，現在仍湮滅的旭川河與老去的三連棟，究竟面臨什麼樣的困境？</p>
+    </div>
+
+
+    <div class="threeblock">
+        <img id=pic3-1 src="Picture/pic3-1.png" style="z-index: 1;">
+        <img id=pic3-A src="Picture/pic3-A.png" style="z-index: 2; width: 100vw; bottom: calc(-10%); right: 0;">
+        <img id=pic3-B src="Picture/pic3-B.png" style="z-index: 3; width: 8vw; bottom: calc(18.5%); left: calc(10%);">
+        <img id=pic3-C src="Picture/pic3-C.png" style="z-index: 4; width: 10vw; bottom: calc(32%); right: calc(24%);">
+        <img id=pic3-D src="Picture/pic3-D.png" style="z-index: 5; height: 10vh; right: 0; top: calc(29%)">
+    </div>
+
+    <div class="cardblock">
+        <div class="row">
+            <div class="col-sm-6">
+                <div id=cardA class="card" style="z-index: 6; width: 18rem; top: calc(-250%); right: calc(40%)">
+                    <img src="Picture/popup_A.jpg" class="card-img-top" alt="旭川河加蓋後，已經失去了河川功能，百納髒汙、水質惡劣、臭味等問題層出不窮。">
+                    <div class="card-body">
+                        <p class="card-text">【旭川河水質問題】
+                            <br>
+                            旭川河加蓋後，已經失去了河川功能，百納髒汙、水質惡劣、臭味等問題層出不窮。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div id=cardB class="card" style="z-index: 7; width: 18rem; top: calc(-300%); left: calc(20%)">
+                    <img src="Picture/popup_B1.JPG" class="card-img-top"
+                        alt="三連棟的商家大多位於二至四樓，但礙於現有樓梯口位置過於隱密，無法發揮人潮導流的效果。">
+                    <div class="card-body">
+                        <p class="card-text">【側面樓梯口位置隱密】
+                            <br>三連棟的商家大多位於二至四樓，但礙於現有樓梯口位置過於隱密，無法發揮人潮導流的效果。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div id=cardC class="card" style="z-index: 8; width: 18rem; top: calc(-430%); right: calc(5%)">
+                    <img src="Picture/popup_C1.JPG" class="card-img-top" alt="礙於產權問題，基隆市政府僅能針對空橋支柱進行補強，空橋結構崩壞的風險依然存在。">
+                    <div class="card-body">
+                        <p class="card-text">【空橋建物結構劣化】
+                            <br>礙於產權問題，基隆市政府僅能針對空橋支柱進行補強，空橋結構崩壞的風險依然存在。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div id=cardD class="card" style="z-index: 9; width: 18rem; top: calc(-420%); left: calc(20%)">
+                    <img src="Picture/popup_D1.JPG" class="card-img-top" alt="倘若拆除三連棟，近500戶住民商家應如何安置賠償？">
+                    <div class="card-body">
+                        <p class="card-text">【拆除之後？】
+                            <br>倘若拆除三連棟，400餘戶住民商家應如何安置賠償？
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="three-1block">
+        <p class="three-1block-text">
+            透過現場直擊，或許可以理解為什麼新聞媒體、民間討論數十年來甚囂塵上，
+            <br>
+            旭川河和三連棟的定位與走向卻依然懸而未決。
+        </p>
+    </div>
+
+    <div class="threeblock">
+        <img id=pic3-1 src="Picture/banner_4.PNG">
+    </div>
+
+    <div id="overlay"
+        style="display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.8); z-index: 2; cursor: pointer;">
+        <div
+            style="position: absolute; top: 50%; left: 50%; font-size: 28px; color: white; transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%);">
+            [上一頁] ← 點擊畫面兩側觸發動畫 → [下一頁]
+        </div>
+    </div>
+
+    <div id="ch4start" class="sectionblock">
+        <div id="section1" class="section active">
+            <div class="finaltitle-block">
+                「拆除與開蓋是未來會執行的方向嗎？為什麼多年來持續討論而沒有行動？」
+                <br>
+                在明德大樓三樓的雞籠文史協進會裡，我再次向諸位理事確認。
+            </div>
+        </div>
+
+        <div id="section2" class="section">
+            <div class="title-block">
+                「拆除與開蓋是未來會執行的方向嗎？<br>為什麼多年來持續討論而沒有行動？」
+            </div>
+            <div class="block">
+                <img src="Picture/pic4-2.png" alt="曾子良｜雞籠文史協進會理事長、國立臺灣海洋大學海洋文化研究所兼任教授、基隆社區大學講師">
+                <p>曾子良｜<br>
+                    雞籠文史協進會理事長、國立臺灣海洋大學海洋文化研究所兼任教授、基隆社區大學講師</p>
+                <img src="Picture/pic4-1.png" alt="安嘉芳｜國立臺灣海洋大學海洋文化研究所兼任副教授">
+                <p>安嘉芳｜<br>
+                    國立臺灣海洋大學海洋文化研究所兼任副教授</p>
+            </div>
+            <div class="block">
+                <div class="top-text-box">「每一任市長候選人都會拋出這個討論，但不會列入正式政策，沒有足夠的關注度，新聞當然報一報就沒有下文。」</div>
+                <div class="bottom-text-box">
+                    「網路上都是『民間』的聲音，市政府從來沒有提出對於這三棟大樓的處理和決策，因為後續問題太龐大了，大樓裡現在還有四百多戶，基隆市區不可能找到這麼大的空間安置大家。就算找到安置地點，也不是每戶都願意搬過去。怎麼安置、怎麼賠償都是很棘手的問題。」
+                </div>
+            </div>
+        </div>
+
+        <div id="section3" class="section">
+            <div class="title-block">「既然明顯窒礙難行，當初為什麼會有<br>開蓋的想法呢？」</div>
+            <div class="block">
+                <img src="Picture/pic4-3.png" alt="曾樹銘｜雞籠文史協進會理事、銘德模型店老闆、海舶工作站負責人">
+                <p>曾樹銘｜<br>
+                    雞籠文史協進會理事、銘德模型店老闆、海舶工作站負責人</p>
+            </div>
+            <div class="answer-block">「就是一個『願望』嘛......」</div>
+        </div>
+
+        <div id="section4" class="section">
+            <div class="title-block">「如果不開蓋、不拆除，三連棟現在面臨的問題該怎麼解決？有何規劃？」</div>
+            <div class="block">
+                <img src="Picture/pic4-3.png" alt="曾樹銘｜雞籠文史協進會理事、銘德模型店老闆、海舶工作站負責人">
+                <p>曾樹銘｜<br>
+                    雞籠文史協進會理事、銘德模型店老闆、海舶工作站負責人</p>
+            </div>
+            <div class="block">
+                <div class="sec-top-text-box">「你聽過『大學之道』嗎？<br>
+                    『大學之道，在明明德，在親民，在止於至善。』<br>
+                    對應到這三棟被浮橋連接起來的明德、親民、至善大樓。<br>
+                    <br>
+                    我的構想是，在明德大樓（靠近海洋廣場）和仁愛橋那一側（至善大樓）的人行空間加一個樓梯，不影響通行、沒有減少公共空間，但是讓原本沒什麼功能的立面變成像飛機準備起飛、很明顯的入口造型。<br>
+                    <br>
+                    用這個邀請大家走進二樓，孝一路和愛一路之間就多出一條商業街。而且旭橋遺跡可以移到明德大樓的樓梯底下，左右分別放整理過的旭川河加蓋和三棟大樓的興建碑和大學之道的石碑。」
+                </div>
+                <div class="sec-bottom-text-box">
+                    <img src="Picture/pic4-4.JPG" alt="「大學之道」模型示意圖">
+                    <p>「大學之道」模型示意圖</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="section5" class="section">
+            <div class="title-block">「如果不開蓋、不拆除，三連棟現在面臨的問題該怎麼解決？有何規劃？」</div>
+            <div class="block">
+                <img src="Picture/pic4-2.png" alt="曾子良｜雞籠文史協進會理事長、國立臺灣海洋大學海洋文化研究所兼任教授、基隆社區大學講師">
+                <p>曾子良｜<br>
+                    雞籠文史協進會理事長、國立臺灣海洋大學海洋文化研究所兼任教授、基隆社區大學講師</p>
+            </div>
+            <div class="answer-block">「這個構想其實很好，這條商業街沒有占用公共空間、逛的時候不怕日曬雨淋，也不會出現交通事故，但是很可惜，3000人的連署沒有通過。」</div>
+        </div>
+
+        <div id="section6" class="section">
+            <div class="title-block">「如果使用現有的、大樓兩側的樓梯間，例如：增加一些指引，會是可能吸引人潮的替代辦法嗎？」</div>
+            <div class="block">
+                <img src="Picture/pic4-2.png" alt="曾子良｜雞籠文史協進會理事長、國立臺灣海洋大學海洋文化研究所兼任教授、基隆社區大學講師">
+                <p>曾子良｜<br>
+                    雞籠文史協進會理事長、國立臺灣海洋大學海洋文化研究所兼任教授、基隆社區大學講師</p>
+            </div>
+            <div class="answer-block">
+                「我們有討論過，樓梯間，尤其是靠海這一側，假設租出去，做空間需求比較小的生意，可以吸引大家，委員會也可以收租金，如果一個月六千元，一棟大樓六個樓梯間都租出去，一年有將近四十萬的收入，可以用來聘請管理人員。推動任何事情都需要財源，我們也一直想各式各樣的辦法開源，但樓梯間是公共空間，其中兩個還有電表設施，大家同不同意、設施會不會受影響都要考慮。」
+            </div>
+        </div>
+
+        <div id="section7" class="section">
+            <div class="title-block">「如果使用現有的、大樓兩側的樓梯間，例如：增加一些指引，會是可能吸引人潮的替代辦法嗎？」</div>
+            <div class="block">
+                <img src="Picture/pic4-3.png" alt="曾樹銘｜雞籠文史協進會理事、銘德模型店老闆、海舶工作站負責人">
+                <p>曾樹銘｜<br>
+                    雞籠文史協進會理事、銘德模型店老闆、海舶工作站負責人</p>
+            </div>
+            <div class="answer-block">「大家現在缺乏創新的頭腦，遇到困難就不管了。我們有很多想法，也可以提出來，但實現沒有那麼容易。」
+                <br>
+                <br>
+                <br>
+                「現在那邊（明德大樓靠海洋廣場側的人行空間）做成S型花圃，這樣也不錯，還是可以做大學之道的樓梯入口，但我的模型要再改一下......」
+            </div>
+        </div>
+
+        <div id="section8" class="section">
+            <div class="finaltitle-block">
+                對內缺乏共識，在外缺乏關注，是公共事務難以推動的主要原因。
+            </div>
+        </div>
+
+        <div id="section9" class="section">
+            <div class="finalquote-block">
+                <img src="Picture/pic4-1.png" alt="安嘉芳｜國立臺灣海洋大學海洋文化研究所兼任副教授">
+                <p>安嘉芳｜<br>
+                    國立臺灣海洋大學海洋文化研究所兼任副教授</p>
+            </div>
+            <div class="finalanswer-block">「所以雞籠文史協進會一直致力於帶大家正確地認識基隆的故事。」
+            </div>
+        </div>
+
+        <div id="section10" class="section">
+            <div class="finaltitle-block">
+                不管是基隆港、崁仔頂魚市、旭川河、三連棟，還是旁邊的委託行，
+                <br>
+                <br>
+                文史協進會透過一次次的走讀和活動讓大家瞭解環環相扣的歷史，
+                <br>
+                <br>
+                當這些老去的建築被重新賦予故事，
+                <br>
+                <br>
+                也許就離「在地人認同、外地人關心」以及協進會的理想更近一步了吧。
+            </div>
+        </div>
+
+        <div id="section11" class="section">
+            <div class="finalanswer-block">
+                <div>
+                    網頁：王翊瑄、童昱宸
+                    <br>
+                    設計：童昱宸
+                    <br>
+                    文字：王翊瑄
+                    <br>
+                    採訪：王翊瑄
+                    <br>
+                    攝影：王翊瑄、童昱宸
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div style="font-size:1rem;text-align: center;">
+                    引用照片：
+                    <br>
+                    郎靜山，1949。臺灣紀實攝影街景系列：基隆旭川河上明德橋
+                    <br>
+                    林慧美、陳憲明、張怡玲、黃致誠，取自《崁仔頂：魚行與社群文化》。
+                    <br>
+                    1968 年基隆委託行。取自國家發展委員會檔案管理局《港灣．記憶─跨越時空的雙港故事》。
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+                var windowHeight = $(window).height();
+
+                // console.log(scrollTop);
+
+                $('.spot').each(function () {
+                    var spotPos = $(this).offset().top;
+                    if ((scrollTop + windowHeight / 1.7) > spotPos) {
+                        $(this).addClass('spotted');
+                    }
+                })
+            })
+        })
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var rect = document.getElementById('map').getBoundingClientRect();
+            var progress = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height * 0.75), 0), 1);
+            var startColor = [0, 0, 0];
+            var endColor = [49, 72, 87];
+            var interpolatedColor = startColor.map(function (channel, index) {
+                return Math.round(channel + progress * (endColor[index] - channel));
+            });
+            var backgroundColor = 'rgb(' + interpolatedColor.join(', ') + ')';
+            document.getElementById('map').style.backgroundColor = backgroundColor;
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var rect = document.getElementById('river').getBoundingClientRect();
+            var enterProgress = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height * 0.25), 0), 1);
+            var leaveProgress = Math.min(Math.max((rect.bottom - window.innerHeight - (rect.height * 0.01)) / (rect.height * 0.25), 0), 1);
+            var progress = Math.min(enterProgress, leaveProgress);
+            var opacity = progress;
+            var imageUrl = 'url("Picture/1-4.jpg")';
+
+            document.getElementById('riverbg').style.background = `linear-gradient(rgba(0, 0, 0, ${0.5 * (1 - opacity)}), rgba(0, 0, 0, ${0.5 * (1 - opacity)})), ${imageUrl}`;
+            document.getElementById('riverbg').style.backgroundSize = 'cover';
+            document.getElementById('riverbg').style.backgroundAttachment = 'fixed';
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var rect = document.getElementById('triple').getBoundingClientRect();
+            var enterProgress = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height * 0.5), 0), 1);
+            var leaveProgress = Math.min(Math.max((rect.bottom - window.innerHeight - (rect.height * 0.01)) / (rect.height * 0.25), 0), 1);
+            var progress = Math.min(enterProgress, leaveProgress);
+            var opacity = progress;
+            var imageUrl = 'url("Picture/1-5.jpg")'; // 替換為實際圖片URL
+
+            document.getElementById('triplebg').style.background = `linear-gradient(rgba(0, 0, 0, ${0.5 * (1 - opacity)}), rgba(0, 0, 0, ${0.5 * (1 - opacity)})), ${imageUrl}`;
+            document.getElementById('triplebg').style.backgroundSize = 'cover';
+            document.getElementById('triplebg').style.backgroundAttachment = 'fixed';
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var rect = document.getElementById('shop').getBoundingClientRect();
+            var enterProgress = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height * 0.5), 0), 1);
+            var leaveProgress = Math.min(Math.max((rect.bottom - window.innerHeight - (rect.height * 0.01)) / (rect.height * 0.25), 0), 1);
+            var progress = Math.min(enterProgress, leaveProgress);
+            var opacity = progress;
+            var imageUrl = 'url("Picture/1-7.jpg")'; // 替換為實際圖片URL
+
+            document.getElementById('shopbg').style.background = `linear-gradient(rgba(0, 0, 0, ${0.5 * (1 - opacity)}), rgba(0, 0, 0, ${0.5 * (1 - opacity)})), ${imageUrl}`;
+            document.getElementById('shopbg').style.backgroundSize = 'cover';
+            document.getElementById('shopbg').style.backgroundAttachment = 'fixed';
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var rect = document.getElementById('tripleshop').getBoundingClientRect();
+            var enterProgress = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height * 0.5), 0), 1);
+            var leaveProgress = Math.min(Math.max((rect.bottom - window.innerHeight - (rect.height * 0.01)) / (rect.height * 0.25), 0), 1);
+            var progress = Math.min(enterProgress, leaveProgress);
+            var opacity = progress;
+            var imageUrl = 'url("Picture/1-8.jpg")'; // 替換為實際圖片URL
+
+            document.getElementById('tripleshopbg').style.background = `linear-gradient(rgba(0, 0, 0, ${0.5 * (1 - opacity)}), rgba(0, 0, 0, ${0.5 * (1 - opacity)})), ${imageUrl}`;
+            document.getElementById('tripleshopbg').style.backgroundSize = 'cover';
+            document.getElementById('tripleshopbg').style.backgroundAttachment = 'fixed';
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var rect = document.getElementById('banner2').getBoundingClientRect();
+            var enterProgress = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height * 0.5), 0), 1);
+            var leaveProgress = Math.min(Math.max((rect.bottom - window.innerHeight - (rect.height * 0.01)) / (rect.height * 0.25), 0), 1);
+            var progress = Math.min(enterProgress, leaveProgress);
+            var opacity = progress;
+            var imageUrl = 'url("Picture/2-0.jpg")'; // 替換為實際圖片URL
+
+            document.getElementById('banner2bg').style.background = `linear-gradient(rgba(0, 0, 0, ${0.5 * (1 - opacity)}), rgba(0, 0, 0, ${0.5 * (1 - opacity)})), ${imageUrl}`;
+            document.getElementById('banner2bg').style.backgroundSize = 'cover';
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var rect = document.getElementById('port1').getBoundingClientRect();
+            var enterProgress = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height * 0.5), 0), 1);
+            var leaveProgress = Math.min(Math.max((rect.bottom - window.innerHeight - (rect.height * 0.01)) / (rect.height * 0.25), 0), 1);
+            var progress = Math.min(enterProgress, leaveProgress);
+            var opacity = progress;
+            var imageUrl = 'url("Picture/2-1-0.jpg")'; // 替換為實際圖片URL
+
+            document.getElementById('port1bg').style.background = `linear-gradient(rgba(0, 0, 0, ${0.5 * (1 - opacity)}), rgba(0, 0, 0, ${0.5 * (1 - opacity)})), ${imageUrl}`;
+            document.getElementById('port1bg').style.backgroundSize = 'cover';
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var rect = document.getElementById('port2').getBoundingClientRect();
+            var enterProgress = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height * 0.5), 0), 1);
+            var leaveProgress = Math.min(Math.max((rect.bottom - window.innerHeight - (rect.height * 0.01)) / (rect.height * 0.25), 0), 1);
+            var progress = Math.min(enterProgress, leaveProgress);
+            var opacity = progress;
+            var imageUrl = 'url("Picture/2-2-0.jpg")'; // 替換為實際圖片URL
+
+            document.getElementById('port2bg').style.background = `linear-gradient(rgba(0, 0, 0, ${0.5 * (1 - opacity)}), rgba(0, 0, 0, ${0.5 * (1 - opacity)})), ${imageUrl}`;
+            document.getElementById('port2bg').style.backgroundSize = 'cover';
+        });
+    </script>
+    <script>
+        $(function () {
+            var scrollable = $("#seaphoto").height() - $(window).height();
+
+            $(window).scroll(function () {
+                var scrolled = $(document).scrollTop();
+                $(".opa, .text-content").each(function () {
+                    var pos = parseInt($(this).data("pos"));
+                    var opacityRangeStart = (pos - 1) * (scrollable / 5);
+                    var opacityRangeEnd = pos * (scrollable / 5);
+                    var opacity = 0;
+
+                    if (scrolled >= opacityRangeStart && scrolled < opacityRangeEnd) {
+                        opacity = (scrolled - opacityRangeStart) / (opacityRangeEnd - opacityRangeStart);
+                    }
+
+                    $(this).css("opacity", 1 - opacity);
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var h_pos = $("#floorplan").offset().top;
+            var hframe_h = $("#floorplan").height();
+            var winh = $(window).height();
+            // var max_scroll = $(document).height() - $(window).height();
+            var max_w = $("#horizontal").width() - $(window).width();
+            $(window).on("resize", function () {
+                winh = $(window).height();
+                max_scroll = $(document).height() - $(window).height();
+                max_w = $("#horizontal").width() - $(window).width();
+            });
+            $(window).scroll(function () {
+                var current_pos = $(window).scrollTop();
+                if (current_pos > h_pos && current_pos < h_pos + hframe_h - winh) {
+                    var new_left = -1 * max_w * ((current_pos - h_pos) / (hframe_h - winh));
+                    console.log(new_left);
+                    $("#horizontal").css({
+                        left: new_left
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#pic3-A").hover(function () {
+                $("#cardA").fadeIn();
+            }, function () {
+                $("#cardA").fadeOut();
+            });
+
+            $("#pic3-B").hover(function () {
+                $("#cardB").fadeIn();
+            }, function () {
+                $("#cardB").fadeOut();
+            });
+
+            $("#pic3-C").hover(function () {
+                $("#cardC").fadeIn();
+            }, function () {
+                $("#cardC").fadeOut();
+            });
+
+            $("#pic3-D").hover(function () {
+                $("#cardD").fadeIn();
+            }, function () {
+                $("#cardD").fadeOut();
+            });
+        });
+
+        let overlayShown = false;
+        let currentSection = 1;
+
+        window.addEventListener('scroll', () => {
+            if (!overlayShown) {
+                let scrollTotal = document.documentElement.scrollHeight;
+                let scrollCurrent = window.innerHeight + window.scrollY;
+
+                let threshold = 50; // 閾值
+
+                if (scrollCurrent + threshold >= scrollTotal) {
+                    overlayShown = true; // 標記 overlay 將被顯示
+                    setTimeout(showOverlay, 1000); // 延遲1秒後顯示 overlay
+                }
+            }
+        });
+
+        function disableScroll() {
+            document.body.style.overflow = 'hidden'; // 禁止滾動
+        }
+
+        function enableScroll() {
+            document.body.style.overflow = ''; // 允許滾動
+        }
+
+        function showOverlay() {
+            let overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+            setTimeout(() => { overlay.style.opacity = 1; }, 100); // 開始淡入
+
+            setTimeout(() => {
+                overlay.style.opacity = 0; // 2秒後開始淡出
+            }, 4000);
+            setTimeout(() => {
+                overlay.style.display = 'none'; // 淡出後隱藏 overlay
+                enableScroll(); // 當 overlay 消失時，恢復滾動
+            }, 3000);
+        }
+
+        window.addEventListener('click', (event) => {
+            const halfWidth = window.innerWidth / 2;
+            if (event.clientX > halfWidth && currentSection < 11) {
+                changeSection(1); // Increment section
+            } else if (event.clientX <= halfWidth && currentSection > 1) {
+                changeSection(-1); // Decrement section
+            }
+        });
+
+        function changeSection(direction) {
+            document.getElementById('section' + currentSection).classList.remove('active');
+            currentSection += direction;
+            setTimeout(() => {
+                document.getElementById('section' + currentSection).classList.add('active');
+            }, 1000);
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById('banner-title').style.opacity = 1;
+        };
+    </script>
+
+</body>
